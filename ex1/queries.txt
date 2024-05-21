@@ -1,0 +1,59 @@
+1.
+
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+
+SELECT (COUNT(DISTINCT ?class) AS ?numberOfClasses) WHERE {
+  ?class rdf:type owl:Class .
+}
+
+
+
+2.
+
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+
+SELECT (COUNT(DISTINCT ?objectProperty) AS ?numberOfObjectProperties) WHERE {
+  ?objectProperty rdf:type owl:ObjectProperty .
+}
+
+
+
+3.
+
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT (COUNT(DISTINCT ?individual) AS ?numberOfIndividuals) WHERE {
+  ?individual rdf:type owl:NamedIndividual .
+}
+
+
+
+4.
+
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX : <http://rpcw.di.uminho.pt/2024/fazenda/>
+
+SELECT ?agricultor WHERE {
+  ?agricultor rdf:type :Agricultor .
+  ?agricultor :cultiva :Tomate .
+}
+
+
+
+5.
+
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX : <http://rpcw.di.uminho.pt/2024/fazenda/>
+
+SELECT distinct ?agricultor WHERE {
+  ?agricultor rdf:type :Agricultor .
+  ?agricultor :contrata ?trabalhador .
+  ?trabalhador rdf:type :Trabalhador .
+}

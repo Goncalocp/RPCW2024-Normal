@@ -1,0 +1,1 @@
+Foi realizado o ex1 todo, e o ex2 até à questão 10.

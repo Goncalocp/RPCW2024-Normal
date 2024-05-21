@@ -1,0 +1,362 @@
+@prefix : <http://rpcw.di.uminho.pt/2024/fazenda/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://rpcw.di.uminho.pt/2024/fazenda/> .
+
+<http://rpcw.di.uminho.pt/2024/fazenda> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#AnimalEstimacao
+:AnimalEstimacao rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Fazenda ;
+                 rdfs:range :Animal .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#ajuda
+:ajuda rdf:type owl:ObjectProperty ;
+       rdfs:domain :Pessoa ;
+       rdfs:range :Pessoa .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#contem
+:contem rdf:type owl:ObjectProperty ;
+        owl:inverseOf :situadaEm .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#contrata
+:contrata rdf:type owl:ObjectProperty ;
+          owl:inverseOf :contratadoPor ;
+          rdfs:domain :Agricultor ;
+          rdfs:range :Trabalhador .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#contratadoPor
+:contratadoPor rdf:type owl:ObjectProperty .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#cria
+:cria rdf:type owl:ObjectProperty ;
+      owl:inverseOf :criadoPor ;
+      rdfs:domain :Pessoa ;
+      rdfs:range :Animal .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#criadoPor
+:criadoPor rdf:type owl:ObjectProperty .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#cultiva
+:cultiva rdf:type owl:ObjectProperty ;
+         owl:inverseOf :cultivadoPor ;
+         rdfs:domain :Pessoa ;
+         rdfs:range :Produto .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#cultivadoPor
+:cultivadoPor rdf:type owl:ObjectProperty .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#pertence
+:pertence rdf:type owl:ObjectProperty ;
+          owl:inverseOf :possui ;
+          rdfs:domain :Fazenda ;
+          rdfs:range :Agricultor .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#possui
+:possui rdf:type owl:ObjectProperty .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#situadaEm
+:situadaEm rdf:type owl:ObjectProperty ;
+           rdfs:domain :Fazenda ;
+           rdfs:range :Vila .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#temFamiliar
+:temFamiliar rdf:type owl:ObjectProperty ;
+             rdfs:domain :Agricultor ;
+             rdfs:range :Familiar .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#trocaCom
+:trocaCom rdf:type owl:ObjectProperty ;
+          rdfs:domain :Agricultor ;
+          rdfs:range :Agricultor .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#vendeEm
+:vendeEm rdf:type owl:ObjectProperty ;
+         rdfs:domain :Agricultor ;
+         rdfs:range :Feira .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#formaPagamento
+:formaPagamento rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Trabalhador ;
+                rdfs:range xsd:string .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#nome
+:nome rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Pessoa ;
+      rdfs:range xsd:string .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#nomeAninal
+:nomeAninal rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Animal ;
+            rdfs:range xsd:string .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#nomeFeira
+:nomeFeira rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Feira ;
+           rdfs:range xsd:string .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#nomeVila
+:nomeVila rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Vila ;
+          rdfs:range xsd:string .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#tipoAnimal
+:tipoAnimal rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Animal ;
+            rdfs:range xsd:string .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#veiculo
+:veiculo rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Fazenda ;
+         rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Agricultor
+:Agricultor rdf:type owl:Class ;
+            rdfs:subClassOf :Pessoa .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Animal
+:Animal rdf:type owl:Class .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Familiar
+:Familiar rdf:type owl:Class ;
+          rdfs:subClassOf :Pessoa .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Fazenda
+:Fazenda rdf:type owl:Class .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Feira
+:Feira rdf:type owl:Class .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Fruta
+:Fruta rdf:type owl:Class ;
+       rdfs:subClassOf :Produto .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Pessoa
+:Pessoa rdf:type owl:Class .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Produto
+:Produto rdf:type owl:Class .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Trabalhador
+:Trabalhador rdf:type owl:Class ;
+             rdfs:subClassOf :Pessoa .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Vegetal
+:Vegetal rdf:type owl:Class ;
+         rdfs:subClassOf :Produto .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Vila
+:Vila rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Alface
+:Alface rdf:type owl:NamedIndividual ,
+                 :Vegetal ;
+        :cultivadoPor :SrCarlos .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Ana
+:Ana rdf:type owl:NamedIndividual ,
+              :Familiar ;
+     :ajuda :SraMaria ;
+     :temFamiliar :Pedro ,
+                  :SrJoao ,
+                  :SraMaria ;
+     :nome "Ana" .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Banana
+:Banana rdf:type owl:NamedIndividual ,
+                 :Fruta ;
+        :cultivadoPor :SrJoao .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Cachorro
+:Cachorro rdf:type owl:NamedIndividual ;
+          :nomeAninal "Rex" .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Cenoura
+:Cenoura rdf:type owl:NamedIndividual ,
+                  :Vegetal ;
+         :cultivadoPor :SrCarlos .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#FazendaCarlos
+:FazendaCarlos rdf:type owl:NamedIndividual ,
+                        :Fazenda ;
+               :pertence :SrCarlos .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#FazendaJoao
+:FazendaJoao rdf:type owl:NamedIndividual ,
+                      :Fazenda ;
+             :AnimalEstimacao :Cachorro ;
+             :pertence :SrJoao ;
+             :veiculo "Trator" .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#FeiraSaoJose
+:FeiraSaoJose rdf:type owl:NamedIndividual ,
+                       :Feira ;
+              :nomeFeira "Feira de Sao Jose" .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Galinha
+:Galinha rdf:type owl:NamedIndividual ,
+                  :Animal ;
+         :criadoPor :SrJoao ;
+         :tipoAnimal "ave" .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Laranja
+:Laranja rdf:type owl:NamedIndividual ,
+                  :Fruta ;
+         :cultivadoPor :SrJoao .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Maca
+:Maca rdf:type owl:NamedIndividual ,
+               :Fruta ;
+      :cultivadoPor :SrJoao .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Pedro
+:Pedro rdf:type owl:NamedIndividual ,
+                :Familiar ;
+       :ajuda :SrJoao ;
+       :temFamiliar :Ana ,
+                    :SrJoao ,
+                    :SraMaria ;
+       :nome "Pedro" .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Porco
+:Porco rdf:type owl:NamedIndividual ,
+                :Animal ;
+       :criadoPor :SrJoao ;
+       :tipoAnimal "bovino" .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#SrCarlos
+:SrCarlos rdf:type owl:NamedIndividual ,
+                   :Agricultor ;
+          :contrata :TrabalhTemp1 ,
+                    :TrabalhTemp2 ;
+          :vendeEm :FeiraSaoJose ;
+          :nome "Carlos" .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#SrJoao
+:SrJoao rdf:type owl:NamedIndividual ,
+                 :Agricultor ;
+        :possui :FazendaJoao ;
+        :temFamiliar :Ana ,
+                     :Pedro ,
+                     :SraMaria ;
+        :trocaCom :SrCarlos ;
+        :vendeEm :FeiraSaoJose ;
+        :nome "João" .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#SraMaria
+:SraMaria rdf:type owl:NamedIndividual ,
+                   :Familiar ;
+          :ajuda :SrJoao ;
+          :temFamiliar :Ana ,
+                       :Pedro ,
+                       :SrJoao ;
+          :nome "Maria" .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Tomate
+:Tomate rdf:type owl:NamedIndividual ,
+                 :Vegetal ;
+        :cultivadoPor :SrCarlos .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#TrabalhTemp1
+:TrabalhTemp1 rdf:type owl:NamedIndividual ,
+                       :Trabalhador ;
+              :ajuda :SrCarlos ;
+              :contratadoPor :SrCarlos ;
+              :formaPagamento "hora, refeicoes" ;
+              :nome "Trabalhador1" .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#TrabalhTemp2
+:TrabalhTemp2 rdf:type owl:NamedIndividual ,
+                       :Trabalhador ;
+              :ajuda :SrCarlos ;
+              :contratadoPor :SrCarlos ;
+              :formaPagamento "hora, refeicoes" ;
+              :nome "Trabalhador2" .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#Vaca
+:Vaca rdf:type owl:NamedIndividual ,
+               :Animal ;
+      :criadoPor :SrJoao ;
+      :tipoAnimal "Bovino" .
+
+
+###  http://rpcw.di.uminho.pt/2024/fazenda#VilaSaoJose
+:VilaSaoJose rdf:type owl:NamedIndividual ,
+                      :Vila ;
+             :contem :FazendaCarlos ,
+                     :FazendaJoao ;
+             :nomeVila "Vila de Sao Jose" .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
